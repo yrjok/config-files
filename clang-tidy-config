@@ -1,0 +1,9 @@
+---
+Checks: 'bugprone-*,cppcoreguidelines-*,modernize-*,readability-identifier-*'
+HeaderFilterRegex: '.h'
+CheckOptions:
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-function-cognitive-complexity.Threshold
+    value: 10
+...
