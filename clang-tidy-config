@@ -1,6 +1,14 @@
 ---
-Checks: 'bugprone-*,cppcoreguidelines-*,modernize-*,readability-identifier-*'
-HeaderFilterRegex: '.h'
+Checks:
+  'bugprone-*
+  ,cppcoreguidelines-*
+  ,modernize-*
+  ,misc-*
+  ,readability-*
+  ,readability-identifier-*
+  ,-readability-uppercase-literal-suffix
+  ,cert-*'
+HeaderFilterRegex: '.(h|hpp)'
 CheckOptions:
   - key: readability-identifier-naming.VariableCase
     value: lower_case
