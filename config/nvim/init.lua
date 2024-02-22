@@ -2,7 +2,7 @@
 -- Generally sensible vim settings
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 8
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -29,6 +29,7 @@ require('lazy').setup({
     dependencies = {
 	    'hrsh7th/cmp-nvim-lsp',  -- LSP support for autocompletion
 	    'L3MON4D3/LuaSnip',
+	    'saadparwaiz1/cmp_luasnip',
     },
   },
   {
@@ -41,13 +42,18 @@ require('lazy').setup({
 -- Setup colorscheme
 vim.cmd.colorscheme('rose-pine-moon')
 
-require('cmp').setup({
-	sources = {
+local cmp = require('cmp')
+cmp.setup({
+	sources = cmp.config.sources({
 		{ name = 'nvim-lsp' }
-	},
-	snippet = function(args)
+	}, {
+	  { name = 'buffer' }
+	}),
+	snippet = {
+	  expand = function(args)
 		require('luasnip').lsp_expand(args.body)
-	end
+	  end
+	}
 })
 
 
